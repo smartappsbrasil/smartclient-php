@@ -47,7 +47,6 @@ This example show how you can see data schemas to a application.
 
 ## Library methods
 
-## Methods
 Below you can see methods on this library.
 
 ##### connect($app, $api_user=false, $api_key=false)

@@ -17,53 +17,54 @@ You can found the source of library in the **src** folder.
 1. First step, Install composer :)
 To do it, you need run <b>composer install</b> or <b>php compose.phar install</b>.
 
-2. Run example :D
-On the main folder, run the example with CLI: <b>php examples/basic_data.php</b>
+2. Install library
+You need install this library using **Composer**. So, add package name **smartapps/php-api** on the **dev-master** version in your **composer.json**. If you want do it using **CLI**, run the command: **composer require "smartapps/php-api:dev-master"**.
 
-> You can install this library using **Composer**. So, add package name **smartapps/php-api** on the **dev-master** version. If you want do it using CLI, run the command: **composer require "smartapps/php-api:dev-master"**.
+3. Run example :D
+On the main folder, run the example with CLI: <b>php examples/basic_data.php</b>
 
 ## Examples
 
-### Basic data (basic_data.php)
+#### Basic data (basic_data.php)
 This example show how to get data from a application
 
-### Exec method (exec_method.php)
+#### Exec method (exec_method.php)
 This example show how to execute a method on a application
 
-### Post simple (exec_method_post_simple.php)
+#### Post simple (exec_method_post_simple.php)
 This example show to send a simple block of data.
 
-### Post massive data (exec_method_post_massive.php)
+#### Post massive data (exec_method_post_massive.php)
 This example show how to send a array of data to any method on a application
 
-### View forms
+#### View forms
 This example show how you can see forms avaiables on a application.
 
-### View schemas
+#### View schemas
 This example show how you can see data schemas to a application.
 
-Note: if you liked the examples and you want more, feel free and help us. let's go change the world using the web.
+**Note**: if you liked the examples and you want more, feel free and help us. let's go change the world using the web.
 
 ## Library methods
 
 ## Methods
 Below you can see methods on this library.
 
-### connect($app, $api_user=false, $api_key=false)
+##### connect($app, $api_user=false, $api_key=false)
 You need use this method to connect on S.M.A.R.T
 
-	- Params
+######Params
 	$app 		: Application that you want connect.
 	$api_user	: API USER :P, You can found your, on API Tool in the option **registered keys** on your environment.
 	$api_key 	: API KEY :P, You can found it on API Service in your environment.
 
-### connectionClose()
+##### connectionClose()
 You need use this method to disconnect of S.M.A.R.T
 
-### method($conn, $schema, $method, $args=false, $return="json", $app=false)
+##### method($conn, $schema, $method, $args=false, $return="json", $app=false)
 You can use this method to do a GET request directly using a method as reference.
 
-	- Params
+######Params
 	$conn 		: Connection object reference, found it on return of method **connect**
 	$schema 	: Schema of data
 	$method 	: Method name
@@ -71,10 +72,10 @@ You can use this method to do a GET request directly using a method as reference
 	$return 	: Type of request return
 	$app 		: Subscribe application when execute this method.
 
-### methodPost($conn, $schema, $method, $postVars, $args=false, $return="json", $app=false)
+##### methodPost($conn, $schema, $method, $postVars, $args=false, $return="json", $app=false)
 You can use this method to do a POST request directly using a method as reference.
 
-	- Params
+######Params
 	$conn 		: Connection object reference, found it on return of method **connect**
 	$schema 	: Schema of data
 	$method 	: Method name
@@ -82,40 +83,40 @@ You can use this method to do a POST request directly using a method as referenc
 	$return 	: Type of request return
 	$app 		: A way to subscribe application after connected.
 
-### getSchemas($conn)
+##### getSchemas($conn)
 You can use this method to see which schemas avaiable on a app.
 
-	- Params
+######Params
 	$conn 		: Connection object reference, found it on return of method **connect**
 
-### getForms($conn, $schema)
+##### getForms($conn, $schema)
 You can use this method to see forms.
 
-	- Params
+######Params
 	$conn 		: Connection object reference, found it on return of method **connect**
 	$schema 	: Schema of data
 
-### getData($conn, $schema, $form)
+##### getData($conn, $schema, $form)
 You can use this method to get data.
 
-	- Params
+######Params
 	$conn 		: Connection object reference, found it on return of method **connect**
 	$schema 	: Schema of data
 	$form 		: Form name
 
-### getFile($conn, $file, $mime, $date)
+##### getFile($conn, $file, $mime, $date)
 You can use this method to get a filepath.
 
-	- Params
+######Params
 	$conn 		: Connection object reference, found it on return of method **connect**
 	$file 		: File name
 	$mime 		: Mimetype of the file
 	$date 		: Date file registry
 
-### sendExec($conn, $app, $schema, $form, $postVars, $return="json")
+##### sendExec($conn, $app, $schema, $form, $postVars, $return="json")
 You can use this method to send data to a form.
 
-	- Params
+######Params
 	$conn 		: Connection object reference, found it on return of method **connect**
 	$app 		: Application
 	$schema 	: Schema of data
@@ -123,10 +124,10 @@ You can use this method to send data to a form.
 	$postVars 	: Array data for send
 	$return 	: Return of request
 
-### sendTo($conn, $schema, $form, $postVars=false, $app=false)
+##### sendTo($conn, $schema, $form, $postVars=false, $app=false)
 You can use this method to send data to a form directly.
 
-	- Params
+######Params
 	$conn 		: Connection object reference, found it on return of method **connect**
 	$app 		: Application
 	$schema 	: Schema of data

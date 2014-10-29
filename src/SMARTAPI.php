@@ -1,4 +1,5 @@
-<?
+<?php
+
 	/**
 	 * SMART API PHP Library - A library to connect on S.M.A.R.T platform to integrate webpages with smart data.
 	 *
@@ -7,6 +8,9 @@
 	 * @copyright 2014
 	 *
 	 */
+
+	namespace SmartappsApi;
+
 	class SMARTAPI {
 
 		var $base_url = URL_BASE;
@@ -24,6 +28,7 @@
 				session_start();
 			}
 		}
+
 		/*
 		 * Metódo para conectar a plataforma
 		 */

@@ -9,8 +9,6 @@
 	 *
 	 */
 
-	namespace SmartappsApi;
-
 	class SMARTAPI {
 
 		var $base_url = URL_BASE;
@@ -94,7 +92,8 @@
 				curl_close($curl);
 
 				$connection = json_decode($curl_exec);
-				if ($connection->data->status == "error") {
+
+				if (empty($connect) || $connection->data->status == "error") {
 					session_destroy();
 					$_SESSION = "";
 					return $this->connect($app, $api_user, $api_key);

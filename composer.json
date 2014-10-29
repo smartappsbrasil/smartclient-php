@@ -1,7 +1,7 @@
 {
     "name": "smartapps/php-api",
     "version": "0.0.1",
-    "description": "A library to connect on S.M.A.R.T platform to integrate webpages with smart data",
+    "description": "A library to connect on S.M.A.R.T platform that can integrate webpages with smart data",
     "authors": [
         {
             "name": "Jos\u00e9 Wilker",

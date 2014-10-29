@@ -2,23 +2,21 @@
 
 error_reporting(E_ALL);
 
-# Load S.M.A.R.T API Lib
-
 require("../config.php");
 
-require_once __DIR__ . '/../vendor/autoload.php'; // Autoload files using Composer autoload
-
+# Instance S.M.A.R.T API Class
 $SMARTAPI = new SMARTAPI();
 
 $connMK = $SMARTAPI->connect("controls");
 
 $schemas = $SMARTAPI->getSchemas($connMK);
-$schema = $schemas->data[0];
 
-$data = $SMARTAPI->getData($connMK, $schema, "variaveis_valores/_last/1");
+if (!empty($schemas->data[0])) {
+	echo "Works!";
+} else {
+	echo "Don't work :'(";
+}
 
-echo "<pre>";
-print_r($data);
-echo "</pre>";
+$SMARTAPI->connectionClose();
 
 ?>

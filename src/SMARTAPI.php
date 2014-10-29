@@ -22,9 +22,11 @@
 		var $node = "from";
 
 		public function __construct() {
+
 			if (session_id() == "") {
 				session_start();
 			}
+
 		}
 
 		/*
@@ -33,6 +35,14 @@
 		public function connect($app, $api_user=false, $api_key=false) {
 
 			$this->connect = "from";
+
+			if (empty($this->api_user) && !$api_user) {
+				exit("Error: API USER not found. If you have a config file, check it. But if you don't have, check global vars on class scope.");
+			}
+
+			if (empty($this->api_key) && !$api_key) {
+				exit("Error: API KEY not found. If you have a config file, check it. But if you don't have, check global vars on class scope.");
+			}
 
 			if (empty($_SESSION)) {
 
@@ -125,7 +135,7 @@
 
 			curl_close($curl);
 
-			session_destroy();
+			if (session_id() != "") { session_destroy(); }
 
 			return json_encode($curl_exec);
 

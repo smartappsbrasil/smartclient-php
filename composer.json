@@ -1,5 +1,5 @@
 {
-    "name": "smartapps/smart-php-api",
+    "name": "smartapps/php-api",
     "version": "0.0.1",
     "description": "A library to connect on S.M.A.R.T platform to integrate webpages with smart data",
     "authors": [

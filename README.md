@@ -21,7 +21,7 @@ To do it, you need run <b>composer install</b> or <b>php compose.phar install</b
 You need install this library using **Composer**. So, add package name **smartapps/php-api** on the **dev-master** version in your **composer.json**. If you want do it using **CLI**, run the command: **composer require "smartapps/php-api:dev-master"**.
 
 ####3. Run example :D
-On the main folder you can run opening file into your browser or you can run the example with CLI: <b>php examples/basic_data.php</b>
+On the main folder, you can run the file opening into your browser or you can run the example with CLI: <b>php examples/basic_data.php</b>
 
 ## Examples
 

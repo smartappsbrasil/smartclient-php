@@ -1,18 +1,18 @@
-#SMARTAPPS API Client PHP
+# SMARTAPPS API Client PHP
 
 This library can help developers create webpages integrated with S.M.A.R.T platform (www.smartapps.com.br)
 
-##Requirements
+## Requirements
 
 	- Composer
 	- cUrl Library
 	- PHP >= 5.3
 
-##Source
+## Source
 
 	You can found the source of library in the **src** folder.
 
-##Install examples with composer
+## Install examples with composer
 
 	1. First step, Install composer :)
 	To do it, you need run <b>composer install</b> or <b>php compose.phar install</b>.
@@ -24,25 +24,25 @@ This library can help developers create webpages integrated with S.M.A.R.T platf
 
 ## Examples
 
-	### Basic data (basic_data.php)
-	This example show how to get data from a application
+### Basic data (basic_data.php)
+This example show how to get data from a application
 
-	### Exec method (exec_method.php)
-	This example show how to execute a method on a application
+### Exec method (exec_method.php)
+This example show how to execute a method on a application
 
-	### Post simple (exec_method_post_simple.php)
-	This example show to send a simple block of data.
+### Post simple (exec_method_post_simple.php)
+This example show to send a simple block of data.
 
-	### Post massive data (exec_method_post_massive.php)
-	This example show how to send a array of data to any method on a application
+### Post massive data (exec_method_post_massive.php)
+This example show how to send a array of data to any method on a application
 
-	### View forms
-	This example show how you can see forms avaiables on a application.
+### View forms
+This example show how you can see forms avaiables on a application.
 
-	### View schemas
-	This example show how you can see data schemas to a application.
+### View schemas
+This example show how you can see data schemas to a application.
 
-	Note: if you liked the examples and you want more, feel free and help us. let's go change the world using the web.
+Note: if you liked the examples and you want more, feel free and help us. let's go change the world using the web.
 
 ## Library methods
 

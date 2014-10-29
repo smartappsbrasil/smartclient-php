@@ -55,8 +55,8 @@ You need use this method to connect on S.M.A.R.T
 
 ######Params
 	$app 		: Application that you want connect.
-	$api_user	: API USER :P, You can found your, on API Tool in the option **registered keys** on your environment.
-	$api_key 	: API KEY :P, You can found it on API Service in your environment.
+	$api_user	: API USER :P, You can found yours, on 'API Tool' in the option 'registered keys' on your enviroment.
+	$api_key 	: API KEY :P, You can found it on 'API Tool' in your environment.
 
 ##### connectionClose()
 You need use this method to disconnect of S.M.A.R.T
@@ -65,7 +65,7 @@ You need use this method to disconnect of S.M.A.R.T
 You can use this method to do a GET request directly using a method as reference.
 
 ######Params
-	$conn 		: Connection object reference, found it on return of method **connect**
+	$conn 		: Connection object reference, found it on return of method connect
 	$schema 	: Schema of data
 	$method 	: Method name
 	$args		: Array of arguments that method need.
@@ -76,7 +76,7 @@ You can use this method to do a GET request directly using a method as reference
 You can use this method to do a POST request directly using a method as reference.
 
 ######Params
-	$conn 		: Connection object reference, found it on return of method **connect**
+	$conn 		: Connection object reference, found it on return of method connect
 	$schema 	: Schema of data
 	$method 	: Method name
 	$args		: Array of arguments that method need.
@@ -87,52 +87,52 @@ You can use this method to do a POST request directly using a method as referenc
 You can use this method to see which schemas avaiable on a app.
 
 ######Params
-	$conn 		: Connection object reference, found it on return of method **connect**
+	$conn 		: Connection object reference, found it on return of method connect.
 
 ##### getForms($conn, $schema)
 You can use this method to see forms.
 
 ######Params
-	$conn 		: Connection object reference, found it on return of method **connect**
-	$schema 	: Schema of data
+	$conn 		: Connection object reference, found it on return of method connect.
+	$schema 	: Schema of data.
 
 ##### getData($conn, $schema, $form)
 You can use this method to get data.
 
 ######Params
-	$conn 		: Connection object reference, found it on return of method **connect**
-	$schema 	: Schema of data
-	$form 		: Form name
+	$conn 		: Connection object reference, found it on return of method connect.
+	$schema 	: Schema of data.
+	$form 		: Form name.
 
 ##### getFile($conn, $file, $mime, $date)
 You can use this method to get a filepath.
 
 ######Params
-	$conn 		: Connection object reference, found it on return of method **connect**
-	$file 		: File name
-	$mime 		: Mimetype of the file
-	$date 		: Date file registry
+	$conn 		: Connection object reference, found it on return of method connect.
+	$file 		: File name.
+	$mime 		: Mimetype of the file.
+	$date 		: Date file registry.
 
 ##### sendExec($conn, $app, $schema, $form, $postVars, $return="json")
 You can use this method to send data to a form.
 
 ######Params
-	$conn 		: Connection object reference, found it on return of method **connect**
-	$app 		: Application
-	$schema 	: Schema of data
-	$form 		: Form name
-	$postVars 	: Array data for send
-	$return 	: Return of request
+	$conn 		: Connection object reference, found it on return of method connect.
+	$app 		: Application.
+	$schema 	: Schema of data.
+	$form 		: Form name.
+	$postVars 	: Array data for send.
+	$return 	: Return of request.
 
 ##### sendTo($conn, $schema, $form, $postVars=false, $app=false)
 You can use this method to send data to a form directly.
 
 ######Params
-	$conn 		: Connection object reference, found it on return of method **connect**
-	$app 		: Application
-	$schema 	: Schema of data
-	$form 		: Form name
-	$postVars 	: Array data for send
+	$conn 		: Connection object reference, found it on return of method connect.
+	$app 		: Application.
+	$schema 	: Schema of data.
+	$form 		: Form name.
+	$postVars 	: Array data for send.
 	$app 		: A way to subscribe application after connected.
 
 

@@ -1,10 +1,12 @@
 <?php
 
 	/**
-	 * SMART API PHP Library - A library to connect on S.M.A.R.T platform to integrate webpages with smart data.
+	 *
+	 * SMART API PHP Library
+	 *
+	 * A library to connect on S.M.A.R.T platform to integrate webpages with smart data.
 	 *
 	 * @author  José Wilker <jose.wilker@smartapps.com.br>
-	 *
 	 * @copyright 2014
 	 *
 	 */
@@ -29,8 +31,12 @@
 
 		}
 
-		/*
-		 * Metódo para conectar a plataforma
+		/**
+		 * Public method to connect on S.M.A.R.T platform
+		 * @param  string  $app      application name
+		 * @param  boolean $api_user api user hash
+		 * @param  boolean $api_key  api key
+		 * @return object            object return of a connection
 		 */
 		public function connect($app, $api_user=false, $api_key=false) {
 
@@ -118,6 +124,10 @@
 
 		}
 
+		/**
+		 * Public method to close a connection with S.M.A.R.T
+		 * @return json Object reference with details about the request to close
+		 */
 		public function connectionClose() {
 
 			$curl = curl_init();
@@ -141,6 +151,16 @@
 
 		}
 
+		/**
+		 *
+		 * Private method to make a request with exec for insert data
+		 *
+		 * @param  object $conn   Object connection
+		 * @param  string $option Instructions/Method to send data
+		 * @param  string $params String of data serialized.
+		 * @param  string $return Type of return for a request. (json|csv)
+		 * @return array          Array with details of a request
+		 */
 		private function _execInsert($conn, $option, $params, $return) {
 
 			$curl = curl_init();
@@ -170,8 +190,14 @@
 
 		}
 
-		/*
+		/**
+		 *
 		 * Metódo privado para fazer chamadas simples.
+		 *
+		 * @param  object  $conn   Object of connection
+		 * @param  string  $option Instructions to request the data that you want.
+		 * @param  string  $app    Application name if want do a request to other app.
+		 * @return array           Array with details of a request
 		 */
 		private function _get($conn, $option="_schemas", $app=false) {
 
@@ -201,8 +227,17 @@
 
 		}
 
-		/*
-		 * Metódo privado para fazer chamadas simples.
+		/**
+		 *
+		 * Private method to send data directly a form into a schema.
+		 *
+		 * @param  object  $conn     Object connection
+		 * @param  string  $option   Instructions to set the data that you want.
+		 * @param  string  $form     Form name that you want call
+		 * @param  boolean $postVars String serialized to send data
+		 * @param  boolean $app      Application name
+		 * @return array             Array with details of a request
+		 *
 		 */
 		private function _to($conn, $option="_schemas", $form, $postVars=false, $app=false) {
 
@@ -237,8 +272,18 @@
 
 		}
 
-		/*
-		 * Executa um metódo diretamente na api
+		/**
+		 *
+		 * Public method to make a simple request directly to a method using exec process.
+		 *
+		 * @param  object  $conn   Object connection
+		 * @param  string  $schema Schema that you want active process
+		 * @param  string  $method Name of a method that you want use of a application.
+		 * @param  string  $args   Arguments are optional, if the method want, you need set.
+		 * @param  string  $return Type of return for this request
+		 * @param  string  $app    Application name
+		 * @return array           Array of data with details about the request.
+		 *
 		 */
 		public function method($conn, $schema, $method, $args=false, $return="json", $app=false) {
 
@@ -271,6 +316,19 @@
 
 		}
 
+		/**
+		 *
+		 * Public method to make a request to send data directly into a method using exec process.
+		 *
+		 * @param  object  $conn   Object connection
+		 * @param  string  $schema Schema that you want active process
+		 * @param  string  $method Name of a method that you want use of a application.
+		 * @param  string  $args   Arguments are optional, if the method want, you need set.
+		 * @param  string  $return Type of return for this request
+		 * @param  string  $app    Application name
+		 * @return array           Array of data with details about the request.
+		 *
+		 */
 		public function methodPost($conn, $schema, $method, $postVars, $args=false, $return="json", $app=false) {
 
 			$curl = curl_init();
@@ -283,9 +341,6 @@
 			if ($args) {
 				$this->api_url_get = $this->api_url_get . "/" . $args;
 			}
-
-			//$postVars = array('data' => serialize($postVars));
-			//print_r($postVars);
 
 			curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC );
 			curl_setopt($curl, CURLOPT_USERPWD, "{$conn->api_user}:{$conn->api_key}");
@@ -307,8 +362,12 @@
 
 		}
 
-		/*
-		 * Metódo disponível para obter todos os schemas
+		/**
+		 *
+		 * Public method to get all schemas.
+		 *
+		 * @param  object $conn Object connection
+		 * @return array        Array of schemas
 		 */
 		public function getSchemas($conn) {
 
@@ -325,6 +384,12 @@
 		/*
 		 * Metódo disponível para obter todos os formulários
 		 */
+		/**
+		 * Public method to get all forms on a schema to a application.
+		 * @param  object $conn   Object connection
+		 * @param  string $schema Schema of data
+		 * @return array          Array forms avaiables
+		 */
 		public function getForms($conn, $schema) {
 
 			if (empty($conn)) {
@@ -334,8 +399,14 @@
 			return $forms;
 		}
 
-		/*
-		 * Metódo disponível para obter conteúdo
+		/**
+		 * Public method to get data with basic format.
+		 *
+		 * @param  object $conn   Object connection
+		 * @param  string $schema Schema of data
+		 * @param  string $form   Form that you can get data.
+		 * @return array          Source of data for basic request format
+		 *
 		 */
 		public function getData($conn, $schema, $form) {
 
@@ -349,8 +420,16 @@
 
 		}
 
-		/*
-		 * Metódo disponível para carregar arquivos de forma remota
+		/**
+		 *
+		 * Public method to get a file from a app.
+		 *
+		 * @param  object $conn Object connection
+		 * @param  string $file Hash file with extension to load
+		 * @param  string $mime Mimetype for file
+		 * @param  string $date Date based save file
+		 *
+		 * @return string       URI of file
 		 */
 		public function getFile($conn, $file, $mime, $date) {
 
@@ -369,8 +448,17 @@
 
 		}
 
-		/*
-		 * Metódo disponível para enviar informações
+		/**
+		 *
+		 * Private method to send data usign exec process.
+		 *
+		 * @param  object $conn     Object connection
+		 * @param  string $app      App name
+		 * @param  string $schema   Schema of data
+		 * @param  string $form     Form/Method to call
+		 * @param  string $postVars Serialized data to send
+		 * @param  string $return   Type of return
+		 * @return object           Details about the exec request.
 		 */
 		public function sendExec($conn, $app, $schema, $form, $postVars, $return="json") {
 
@@ -386,11 +474,11 @@
 
 		/**
 		 * Metódo disponível para enviar uma chamada para um form.
-		 * @param  [type]  $conn     [description]
-		 * @param  [type]  $schema   [description]
-		 * @param  boolean $postVars [description]
-		 * @param  boolean $app      [description]
-		 * @return [type]            [description]
+		 * @param  [type]  $conn     Object connection
+		 * @param  [type]  $schema   Schema of data
+		 * @param  boolean $postVars Serialzied data string to send
+		 * @param  boolean $app      App name
+		 * @return [type]            Details about the request to a application
 		 */
 		public function sendTo($conn, $schema, $form, $postVars=false, $app=false) {
 

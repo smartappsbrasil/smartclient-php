@@ -1,4 +1,5 @@
-<?
+<?php
+
 	/**
 	 * SMART API PHP Library - A library to connect on S.M.A.R.T platform to integrate webpages with smart data.
 	 *
@@ -7,6 +8,7 @@
 	 * @copyright 2014
 	 *
 	 */
+
 	class SMARTAPI {
 
 		var $base_url = URL_BASE;
@@ -20,16 +22,27 @@
 		var $node = "from";
 
 		public function __construct() {
+
 			if (session_id() == "") {
 				session_start();
 			}
+
 		}
+
 		/*
 		 * Metódo para conectar a plataforma
 		 */
 		public function connect($app, $api_user=false, $api_key=false) {
 
 			$this->connect = "from";
+
+			if (empty($this->api_user) && !$api_user) {
+				exit("Error: API USER not found. If you have a config file, check it. But if you don't have, check global vars on class scope.");
+			}
+
+			if (empty($this->api_key) && !$api_key) {
+				exit("Error: API KEY not found. If you have a config file, check it. But if you don't have, check global vars on class scope.");
+			}
 
 			if (empty($_SESSION)) {
 
@@ -89,7 +102,8 @@
 				curl_close($curl);
 
 				$connection = json_decode($curl_exec);
-				if ($connection->data->status == "error") {
+
+				if (empty($connect) || $connection->data->status == "error") {
 					session_destroy();
 					$_SESSION = "";
 					return $this->connect($app, $api_user, $api_key);
@@ -121,7 +135,7 @@
 
 			curl_close($curl);
 
-			session_destroy();
+			if (session_id() != "") { session_destroy(); }
 
 			return json_encode($curl_exec);
 

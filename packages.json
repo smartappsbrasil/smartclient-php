@@ -1,0 +1,7 @@
+{
+    "packages": {
+        "smartapps/php-api": {
+            "dev-master": { @composer.json }
+        }
+    }
+}

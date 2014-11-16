@@ -4,7 +4,6 @@
 
     # Load S.M.A.R.T API Lib
     require("../config.php");
-    require("../PHP/SMART_API.php");
 
     # EXECUTANDO MÉTODO
 
@@ -17,10 +16,10 @@
     // simple array
     $postVars = array('variavel' => '1', 'valor' => 60);
 
-    $valorGauge = $smartAPI->methodPost($connMK, $schema, 'variaveis_valores', $postVars, 'insert');
+    $execInsert = $smartAPI->methodPost($connMK, $schema, 'variaveis_valores', $postVars, 'insert');
 
     echo "<pre>";
-    print_r($valorGauge);
+    print_r($execInsert);
     echo "</pre>";
 
     $smartAPI->connectionClose();

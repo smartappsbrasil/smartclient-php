@@ -4,7 +4,6 @@
 
     # Load S.M.A.R.T API Lib
     require("../config.php");
-    require("../PHP/SMART_API.php");
 
     # EXECUTANDO MÉTODO
 

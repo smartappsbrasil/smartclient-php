@@ -1,5 +1,4 @@
 # SMARTAPPS API Client PHP
-
 This library can help developers create webpages integrated with S.M.A.R.T platform (www.smartapps.com.br)
 
 ## Requirements
@@ -9,7 +8,6 @@ This library can help developers create webpages integrated with S.M.A.R.T platf
 	- PHP >= 5.3
 
 ## Source
-
 You can found the source of library in the **src** folder.
 
 ## Install examples with composer
@@ -46,9 +44,7 @@ This example show how you can see data schemas to a application.
 **Note**: if you liked the examples and you want more, feel free and help us. let's go change the world using the web.
 
 ## Library methods
-
-## Methods
-Below you can see methods on this library.
+Below you can see methods avaiable for this library.
 
 ##### connect($app, $api_user=false, $api_key=false)
 You need use this method to connect on S.M.A.R.T

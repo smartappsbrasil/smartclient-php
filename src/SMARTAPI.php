@@ -482,6 +482,8 @@
 		 */
 		public function sendTo($conn, $schema, $form, $postVars=false, $app=false) {
 
+			if (!$app) { $app = $conn->app; }
+
 			if (empty($conn)) {
 				exit('Não foi possível encontrar as definições de conexão.');
 			}
